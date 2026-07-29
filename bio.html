@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Diri</title>
+    <style>
+        /* Mengatur tampilan dasar halaman web */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FAFAFA;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Kotak putih utama pembungkus form */
+        .container {
+            background-color: #e1bdfc;
+            width: 100%;
+            max-width: 600px;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Efek shadow halus */
+            box-sizing: border-box;
+        }
+
+        /* Judul utama form */
+        h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: #1A1A1A;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* Jarak antar kelompok input */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Gaya tulisan label/nama input */
+        label {
+            display: block;
+            font-size: 14px;
+            color: #333333;
+            margin-bottom: 8px;
+        }
+
+        /* Gaya teks opsional atau wajib */
+        .optional {
+            color: #666666;
+        }
+
+        /* Gaya elemen input text, date, dan file */
+        input[type="text"],
+        input[type="date"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 10px 14px;
+            font-size: 14px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            box-sizing: border-box;
+            outline: none;
+            color: #333333;
+            background-color: #FFFFFF;
+        }
+
+        /* Efek saat input diklik atau fokus */
+        input:focus, textarea:focus {
+            border-color: #2563EB;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Memperbaiki ukuran teks placeholder */
+        input::placeholder, textarea::placeholder {
+            color: #888888;
+        }
+
+        /* Khusus untuk textarea (kolom Alamat) */
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+
+        /* Container khusus pilihan Radio Button (Jurusan & Gender) */
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            padding-top: 4px;
+        }
+
+        /* Gaya label untuk setiap radio button */
+        .radio-label {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+            color: #333333;
+        }
+
+        .radio-label input {
+            margin-right: 6px;
+            cursor: pointer;
+        }
+
+        /* Gaya untuk area preview abu-abu di bawah */
+        .preview-box {
+            border: 1px dashed #E5E7EB;
+            background-color: #FAFAFA;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .preview-box h4 {
+            margin: 0 0 6px 0;
+            font-size: 14px;
+            color: #1A1A1A;
+        }
+
+        .preview-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #555555;
+        }
+
+        /* Container tombol di bagian paling bawah */
+        .button-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Gaya umum tombol */
+        .btn {
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        /* Tombol Reset (Putih/Abu-abu) */
+        .btn-reset {
+            background-color: #FFFFFF;
+            border: 1px solid #D1D5DB;
+            color: #333333;
+        }
+
+        .btn-reset:hover {
+            background-color: #F3F4F6;
+        }
+
+        /* Tombol Submit (Abu-abu mati/Disabled sesuai gambar) */
+        .btn-submit {
+            background-color: #F3F4F6;
+            border: 1px solid #E5E7EB;
+            color: #A1A1AA;
+            cursor: not-allowed; /* Kursor menandakan belum bisa diklik */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Biodata Diri</h2>
+        
+        <form>
+            <div class="form-group">
+                <label for="nis">NIS</label>
+                <input type="text" id="nis" placeholder="Contoh: 12345678">
+            </div>
+
+            <div class="form-group">
+                <label for="nama">Nama Lengkap (wajib)</label>
+                <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+            </div>
+
+            <div class="form-group">
+                <label for="kelas">Kelas</label>
+                <input type="text" id="kelas" placeholder="Contoh: 12 RPL 1">
+            </div>
+
+            <div class="form-group">
+                <label>Jurusan</label>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="jurusan" value="RPL" checked> RPL</label>
+                    <label class="radio-label"><input type="radio" name="jurusan" value="TOI"> TOI</label>
+                    <label class="radio-label"><input type="radio" name="jurusan" value="TPM"> TPM</label>
+                    <label class="radio-label"><input type="radio" name="jurusan" value="DPB"> DPB</label>
+                    <label class="radio-label"><input type="radio" name="jurusan" value="Kuliner"> Kuliner</label>
+                    <label class="radio-label"><input type="radio" name="jurusan" value="TITL"> TITL</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tanggal_lahir">Tanggal Lahir</label>
+                <input type="date" id="tanggal_lahir">
+            </div>
+
+            <div class="form-group">
+                <label>Jenis Kelamin</label>
+                <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="gender" value="Laki-laki" checked> Laki-laki</label>
+                    <label class="radio-label"><input type="radio" name="gender" value="Perempuan"> Perempuan</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <textarea id="alamat" placeholder="Masukkan alamat lengkap..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="foto" class="optional">Upload Foto (opsional)</label>
+                <input type="file" id="foto">
+            </div>
+
+            <div class="form-group">
+                <label for="catatan" class="optional">Catatan / Keterangan (opsional)</label>
+                <input type="text" id="catatan" placeholder="Contoh: Riwayat penyakit, hobi">
+            </div>
+
+            <div class="preview-box">
+                <h4>Preview singkat:</h4>
+                <p>Belum ada data yang diisi.</p>
+            </div>
+
+            <div class="button-group">
+                <button type="reset" class="btn btn-reset">Reset</button>
+                <button type="button" class="btn btn-submit" disabled>Submit</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
